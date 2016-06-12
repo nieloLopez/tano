@@ -14,23 +14,19 @@
 
 
             $(".openModal").click(function () {
-                debugger;
+
                 var row = $(this).parents('tr');
                 var id = row.data('id');
+                var url = '/admin/checkout/getPaymentDetails/' + id;
 
-                var url = $('#form-get-payment').attr('action').replace('PAYMENT_ID', id);
-                var data = $('#form-get-payment').serialize();
-                debugger;
-                /*
-                $.post(url, data, function (result) {
-                    row.fadeOut();
-                    $('.alert-success').removeClass('hidden');
-                    $('.alert-success').removeClass('show');
-                    $('.alert-success').html(result.message);
-                }).fail(function () {
-                    row.show();
-                })
-                */
+                $.ajax({
+                    data:  id,
+                    url:   url,
+                    type:  'GET',
+
+                    success:  function (data) {
+                    }
+                });
 
                 $("#userModal").modal('show');
             });

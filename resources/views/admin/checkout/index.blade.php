@@ -36,8 +36,6 @@
             </div>
         </div>
     </div>
-    {!! Form::open(['url' => ['admin/checkout/getPayment', 'PAYMENT_ID'], 'method' => 'GET', 'id' => 'form-get-payment']) !!}
-    {!! Form::close() !!}
     @include('admin/checkout/partials/modalPaymentDetails')
 @endsection
 @include('admin/checkout/partials/scripts')
