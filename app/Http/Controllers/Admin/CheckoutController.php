@@ -71,28 +71,25 @@ class CheckoutController extends Controller {
 
 	public function getPaymentDetails($id)
 	{
-		
-		return response()->json([
-			'message' => 'El usuario fue desactivado con exito'
-		]);
-	}
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
-	}
+		try {
+			$paymentModel = new Payment();
+			$paymentData['paymentActivities'] = $paymentModel->getPaymentActivities($id);
+			$paymentData['paymentItems'] = $paymentModel->getPaymentItems($id);
+            $paymentData['payPending'] = $paymentModel->getPayPending($id);
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
+			return response()->json([
+				'success' => true,
+				'data' => $paymentData,
+			]);
+		} catch (\Exception $ex) {
+			return response()->json([
+				'success' => false,
+				'message' => $ex->getMessage()
+			]);
+		}
+
+	}
+	
 	public function edit($id)
 	{
 		//

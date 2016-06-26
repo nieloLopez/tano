@@ -7,43 +7,22 @@
                 <h4 class="modal-title">Detalles Del Pago</h4>
             </div>
             <div class="modal-body">
-                <table class="table table-striped">
+                <table class="table table-striped" id="tablePaymentItems">
                     <tr>
                         <th>ADMIN</th>
                         <th>FECHA</th>
                         <th>MONTO</th>
                     </tr>
-                    <tr>
-                        <td>ZZZ</td>
-                        <td></td>
-                        <td>500</td>
-                    </tr>
-                    <tr>
-                        <td>BOZE</td>
-                        <td></td>
-                        <td>150</td>
-                    </tr>
+                    <tfoot>
+                        <tr>
+                            <td>Debe</td>
+                            <td></td>
+                            <td id="pay-pending"></td>
+                        </tr>
+                    </tfoot>
                 </table>
                 <h4 class="modal-title">Detalles De Los Pagos</h4>
-                <table class="table table-striped">
-                    <tr>
-                        <td>ZZZ</td>
-                        <td>201-5-88</td>
-                        <td>500</td>
-                    </tr>
-                    <tr>
-                        <td>ZZZ</td>
-                        <td>201-5-88</td>
-                        <td>500</td>
-                    </tr>
-                    <tfoot>
-                    <tr>
-                        <td>Debe</td>
-                        <td></td>
-                        <td>$180</td>
-                    </tr>
-                    </tfoot>
-
+                <table class="table table-striped" id="tablePaymentActivities">
                 </table>
             </div>
             <div class="modal-footer">

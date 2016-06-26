@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
+use DB;
 
 class Payment extends Model {
 
@@ -40,4 +41,41 @@ class Payment extends Model {
         }
     }
 
+
+    public function getPaymentItems($idPayment)
+    {
+        $paymentItem = DB::table('payments as p')
+            ->join('payments_items as pi', 'p.id', '=', 'pi.fk_payment')
+            ->join('customers as c', 'pi.fk_customer_admin', '=', 'c.id')
+            ->select('c.name', 'pi.date_payment', 'pi.amount_pay')
+            ->where('p.id', $idPayment)
+            ->get();
+
+        return $paymentItem;
+    }
+
+    public function getPaymentActivities($idPayment)
+    {
+        $paymentActivities = DB::table('payments as p')
+            ->join('payments_activities as pa', 'p.id', '=', 'pa.fk_payment')
+            ->join('activities as a', 'pa.fk_activity', '=', 'a.id')
+            ->select('a.name', 'p.date_payment', 'a.price')
+            ->where('p.id', $idPayment)
+            ->get();
+
+        return $paymentActivities;
+    }
+
+    /**
+     * @return array
+     */
+    public function getPayPending($idPayment)
+    {
+        $paymentActivities = DB::table('payments as p')
+            ->select(DB::raw('p.price - p.amount as pay_pending'))
+            ->where('p.id', $idPayment)
+            ->get();
+
+        return $paymentActivities;
+    }
 }
