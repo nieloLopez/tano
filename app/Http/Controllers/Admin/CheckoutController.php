@@ -31,17 +31,21 @@ class CheckoutController extends Controller {
 		$user = $userModel->findOrFail($id);
 
         $payments = Payment::search($id)->orderBy('id', 'DESC')->paginate(10);
-        
-		$activityModel = new Activity();
-		$activities = $activityModel->all();
-		return view('admin/checkout/index', compact('user', 'activities', 'payments'));
+
+		return view('admin/checkout/index', compact('user', 'payments'));
 	}
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
+
+	public function add($id)
+	{
+        $userModel = new Customer();
+        $user = $userModel->findOrFail($id);
+
+        $activityModel = new Activity();
+        $activities = $activityModel->all();
+        return view('admin/checkout/add', compact('activities', 'user'));
+	}
+
 	public function finish(CheckoutRequest $request)
 	{
         try {
@@ -62,7 +66,7 @@ class CheckoutController extends Controller {
 
             Session::flash('message', 'El pago se registro con exito');
 
-            return new RedirectResponse(url('admin/checkout/' . $request->request->get('fk_customer')));
+            return new RedirectResponse(url('admin/checkout/list/' . $request->request->get('fk_customer')));
 
         }catch (\Exception $ex){
             dd($ex->getMessage() . " Error");
@@ -92,7 +96,15 @@ class CheckoutController extends Controller {
 	
 	public function edit($id)
 	{
-		//
+        $paymentModel = new Payment();
+        $paymentData['paymentActivities'] = $paymentModel->getPaymentActivities($id);
+        $paymentData['paymentItems'] = $paymentModel->getPaymentItems($id);
+        $paymentData['payPending'] = $paymentModel->getPayPending($id);
+
+        $activityModel = new Activity();
+        $activities = $activityModel->all();
+
+        return view('admin/checkout/edit', compact('paymentData', 'activities'));
 	}
 
 	/**
@@ -106,15 +118,5 @@ class CheckoutController extends Controller {
 		//
 	}
 
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
-	}
 
 }

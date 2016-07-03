@@ -8,7 +8,7 @@
             <td class="col-md-6">{{ $customer->name }}</td>
             <td class="col-md-6">
                 @if($customer->fk_rol != 1)
-                    <a class="col-md-4"href="{{ url('admin/checkout/'.$customer->id) }}">
+                    <a class="col-md-4"href="{{ url('admin/checkout/list/'.$customer->id) }}">
                         <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
                     </a>
                 @endif

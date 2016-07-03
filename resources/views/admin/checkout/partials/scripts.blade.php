@@ -56,11 +56,7 @@
 
                 $("#userModal").modal('show');
             });
-            $("#saveBtn").click(function() {
-                var data = $("#userForm").serialize();
-                alert(data);
-                // $.post, etc..
-            });
+
         });
     </script>
 @endsection

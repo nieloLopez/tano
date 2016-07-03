@@ -40,8 +40,9 @@ Route::delete('admin/activity/disable/{id}', 'Admin\ActivitiesController@disable
 
 
 /***************------------- Checkout -------------*******************/
-Route::get('admin/checkout/{id}', 'Admin\CheckoutController@index');
-
+Route::get('admin/checkout/list/{id}', 'Admin\CheckoutController@index');
 Route::get('admin/checkout/getPaymentDetails/{id}', 'Admin\CheckoutController@getPaymentDetails');
-
+Route::get('admin/checkout/add/{id}', 'Admin\CheckoutController@add');
+Route::get('admin/checkout/edit/{id}', 'Admin\CheckoutController@edit');
 Route::post('admin/checkout/finish', 'Admin\CheckoutController@finish');
+

@@ -35,6 +35,6 @@
 <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10 ">
         <button type="submit" class="btn btn-success">Pagar</button>
-        <a class="btn btn-danger" href="{{ url('admin/') }}">Cancelar</a>
+        <a class="btn btn-danger" href="{{ url('admin/checkout/list/' . $user->id) }}">Cancelar</a>
     </div>
 </div>

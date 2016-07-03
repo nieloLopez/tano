@@ -10,11 +10,10 @@
             <td class="col-md-2">$ {{ $payment->price - $payment->amount }}</td>
 
             <td class="col-md-2">
-                @if (!$payment->status)
-                <a class="col-md-4"href="#!">
+                <a class="col-md-4"href="{{ url('admin/checkout/edit/'.$payment->id) }}">
                     <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
                 </a>
-                @endif
+
                 <a class="col-md-4 openModal" href="#!">
                     <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                 </a>
@@ -22,3 +21,4 @@
         </tr>
     @endforeach
 </table>
+{!! $payments->render() !!}
