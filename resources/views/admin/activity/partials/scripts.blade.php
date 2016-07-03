@@ -1,11 +1,11 @@
 @section('scripts')
     <script>
         $(document).ready(function () {
+            $('.btn-delete').click(function () {
 
-             $('.btn-delete').click(function () {
                 var row = $(this).parents('tr');
                 var id = row.data('id');
-                var url = $('#form-delete').attr('action').replace('USER_ID', id);
+                var url = $('#form-delete').attr('action').replace('USER_ACTIVITY', id);
                 var data = $('#form-delete').serialize();
 
                 $.post(url, data, function (result) {

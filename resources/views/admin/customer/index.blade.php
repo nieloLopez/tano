@@ -26,7 +26,6 @@
 
                 <div class="panel-body">
                     <p>Total {!! $customers->total() !!} usuarios</p>
-
                     @include('admin/customer/partials/table')
                 </div>
 

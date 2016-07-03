@@ -54,4 +54,8 @@ class Customer extends Model implements AuthenticatableContract, CanResetPasswor
 		}
 	}
 
+	public function setRol()
+	{
+		$this->attributes['fk_rol'] = 2;
+	}
 }

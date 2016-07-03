@@ -50,6 +50,7 @@ class CustomerController extends Controller {
         try {
             $user = new Customer();
             $user->fill($request->all());
+            $user->setRol();
             $user->save();
 
             Session::flash('message', 'Se guardo el registro en la base de datos');

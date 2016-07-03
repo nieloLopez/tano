@@ -22,21 +22,14 @@ class CustomerRequest extends Request {
 	 */
 	public function rules(RequestForm $request)
 	{
-		$rules = [
+		return  $rules = [
 			'name' => 'required',
 			'dni' => 'integer|required|unique:customers,dni',
 			'email' => 'required|unique:customers,email',
 			'birthday' => 'required',
 			'address' => 'required',
-			'telephone' => 'required',
-			'fk_rol' => 'required|in:2,3'
+			'telephone' => 'required'
 		];
-        if ($request->request->get('fk_rol') == 2)
-        {
-            $rules['password'] = 'required';
-        }
-
-        return $rules;
 	}
 
 }
