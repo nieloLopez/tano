@@ -93,11 +93,13 @@ class CustomerController extends Controller {
             {
                 $user = new Customer();
                 $user = $user->findOrFail($id);
-                $user->active = 0;
+                $user->status = ($user->status == 1) ? 0 : 1;
+                $status = $user->status;
                 $user->save();
 
                 return response()->json([
-                    'message' => 'El usuario fue desactivado con exito'
+                    'message' => 'El usuario fue modificado con exito',
+                    'status' => $status
                 ]);
             }
 

@@ -26,7 +26,7 @@ class CreateCustomersTable extends Migration {
             $table->integer('fk_rol')->unsigned();
             $table->foreign('fk_rol')->references('id')->on('roles');
             
-            $table->boolean('active')->default(1);
+            $table->boolean('status')->default(1);
             $table->rememberToken();
             $table->timestamps();
         });

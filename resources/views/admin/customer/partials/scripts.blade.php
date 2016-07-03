@@ -9,7 +9,13 @@
                 var data = $('#form-delete').serialize();
 
                 $.post(url, data, function (result) {
-                    row.fadeOut();
+                    //row.fadeOut();
+                    if(result.status) {
+                        row.addClass('bg-warning');
+                    } else {
+                        row.removeClass('bg-warning');
+                    }
+
                     $('.alert-success').removeClass('hidden');
                     $('.alert-success').removeClass('show');
                     $('.alert-success').html(result.message);
