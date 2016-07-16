@@ -1,10 +1,10 @@
 <?php namespace App\Http\Requests;
 
-use App\Http\Requests\Request;
+
 use Illuminate\Routing\Route;
 use Illuminate\Http\Request as RequestForm;
 
-class EditCustomerRequest extends Request {
+class EditPaymentRequest extends Request {
 
 	/**
 	 * EditUserRequest constructor.
@@ -33,13 +33,9 @@ class EditCustomerRequest extends Request {
 	public function rules(RequestForm $request)
 	{
 		return  $rules = [
-			'name' => 'required',
-			'dni' => 'integer|required|unique:customers,dni',
-			'address' => 'required',
-			'telephone' => 'required'
+			'amount' => 'required',
+			'price' => 'required'
 		];
-		//'email' => 'required|unique:customers,email,' . $this->route->getParameter('id'),
-
 	}
 
 }

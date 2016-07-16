@@ -12,42 +12,43 @@ use App\PaymentActivitiy;
 use App\PaymentItem;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\RedirectResponse;
+use App\Http\Requests\EditPaymentRequest;
 
 class CheckoutController extends Controller {
 
-	public function __construct()
-	{
-		$this->middleware('auth');
-	}
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-	public function index($id)
-	{
-		$userModel = new Customer();
-		$user = $userModel->findOrFail($id);
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Response
+     */
+    public function index($id)
+    {
+        $userModel = new Customer();
+        $user = $userModel->findOrFail($id);
 
         $payments = Payment::search($id)->orderBy('id', 'DESC')->paginate(10);
 
-		return view('admin/checkout/index', compact('user', 'payments'));
-	}
+        return view('admin/checkout/index', compact('user', 'payments'));
+    }
 
 
-	public function add($id)
-	{
+    public function add($id)
+    {
         $userModel = new Customer();
         $user = $userModel->findOrFail($id);
 
         $activityModel = new Activity();
         $activities = $activityModel->all();
         return view('admin/checkout/add', compact('activities', 'user'));
-	}
+    }
 
-	public function finish(CheckoutRequest $request)
-	{
+    public function finish(CheckoutRequest $request)
+    {
         try {
             $paymentModel = new Payment();
             $paymentModel->processData($request->request);
@@ -67,56 +68,54 @@ class CheckoutController extends Controller {
             Session::flash('message', 'El pago se registro con exito');
 
             return new RedirectResponse(url('admin/checkout/list/' . $request->request->get('fk_customer')));
-
         }catch (\Exception $ex){
             dd($ex->getMessage() . " Error");
         }
-	}
+    }
 
-	public function getPaymentDetails($id)
-	{
-		try {
-			$paymentModel = new Payment();
-			$paymentData['paymentActivities'] = $paymentModel->getPaymentActivities($id);
-			$paymentData['paymentItems'] = $paymentModel->getPaymentItems($id);
+    public function getPaymentDetails($id)
+    {
+        try {
+            $paymentModel = new Payment();
+            $paymentData['paymentActivities'] = $paymentModel->getPaymentActivities($id);
+            $paymentData['paymentItems'] = $paymentModel->getPaymentItems($id);
             $paymentData['payPending'] = $paymentModel->getPayPending($id);
 
-			return response()->json([
-				'success' => true,
-				'data' => $paymentData,
-			]);
-		} catch (\Exception $ex) {
-			return response()->json([
-				'success' => false,
-				'message' => $ex->getMessage()
-			]);
-		}
+            return response()->json([
+                    'success' => true,
+                    'data' => $paymentData,
+            ]);
+        } catch (\Exception $ex) {
+            return response()->json([
+                    'success' => false,
+                    'message' => $ex->getMessage()
+            ]);
+        }
 
-	}
-	
-	public function edit($id)
-	{
+    }
+
+    public function edit($id)
+    {
         $paymentModel = new Payment();
         $paymentData['paymentActivities'] = $paymentModel->getPaymentActivities($id);
         $paymentData['paymentItems'] = $paymentModel->getPaymentItems($id);
         $paymentData['payPending'] = $paymentModel->getPayPending($id);
+        $idCustomer = $paymentModel->getCustomerByIdPayment($id);
 
         $activityModel = new Activity();
         $activities = $activityModel->all();
 
-        return view('admin/checkout/edit', compact('paymentData', 'activities'));
-	}
+        return view('admin/checkout/edit', compact('paymentData', 'activities', 'id', 'idCustomer'));
+    }
 
-	/**
- * Update 	the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
-	}
-
-
+    /**
+    * Update 	the specified resource in storage.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function update($id, EditPaymentRequest $request)
+    {
+        dd($request->all());
+    }
 }

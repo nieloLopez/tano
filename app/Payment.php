@@ -59,7 +59,7 @@ class Payment extends Model {
         $paymentActivities = DB::table('payments as p')
             ->join('payments_activities as pa', 'p.id', '=', 'pa.fk_payment')
             ->join('activities as a', 'pa.fk_activity', '=', 'a.id')
-            ->select('a.name', 'p.date_payment', 'a.price')
+            ->select('a.id','a.name', 'p.date_payment', 'a.price')
             ->where('p.id', $idPayment)
             ->get();
 
@@ -77,5 +77,18 @@ class Payment extends Model {
             ->get();
 
         return $paymentActivities;
+    }
+
+    /**
+     * @return array
+     */
+    public function getCustomerByIdPayment($idPayment)
+    {
+        $fkCustomer = DB::table('payments as p')
+            ->join('customers as c', 'p.fk_customer', '=', 'c.id')
+            ->select('c.id')
+            ->where('p.id', $idPayment)
+            ->get();
+        return $fkCustomer[0]->id;
     }
 }

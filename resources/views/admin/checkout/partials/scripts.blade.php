@@ -1,8 +1,9 @@
 @section('scripts')
     <script>
         $(document).ready(function () {
-            var amount = 0;
+
             $('.check-activity').click(function(){
+                var amount = 0;
                 if( $(this).is(':checked') ){
                     amount += parseInt($(this).attr('data-price'));
                     $('input#price').val(amount);
@@ -11,6 +12,21 @@
                     $('input#price').val(amount);
                 }
             });
+
+
+            $('.check-activity').click(function(){
+                var amount = parseInt($('#price-pending').val());
+                if( $(this).is(':checked') ){
+
+                    //alert(parseInt($(this).attr('data-price')));
+                    amount += parseInt($(this).attr('data-price'));
+                    $('input#price-pending').val(amount);
+                } else {
+                    amount -= parseInt($(this).attr('data-price'));
+                    $('input#price-pending').val(amount);
+                }
+            });
+
 
 
             $(".openModal").click(function () {

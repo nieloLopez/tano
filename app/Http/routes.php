@@ -45,4 +45,4 @@ Route::get('admin/checkout/getPaymentDetails/{id}', 'Admin\CheckoutController@ge
 Route::get('admin/checkout/add/{id}', 'Admin\CheckoutController@add');
 Route::get('admin/checkout/edit/{id}', 'Admin\CheckoutController@edit');
 Route::post('admin/checkout/finish', 'Admin\CheckoutController@finish');
-
+Route::put('admin/checkout/update/{id}', 'Admin\CheckoutController@update');
