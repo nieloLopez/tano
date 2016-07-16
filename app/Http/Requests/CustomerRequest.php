@@ -25,8 +25,6 @@ class CustomerRequest extends Request {
 		return  $rules = [
 			'name' => 'required',
 			'dni' => 'integer|required|unique:customers,dni',
-			'email' => 'required|unique:customers,email',
-			'birthday' => 'required',
 			'address' => 'required',
 			'telephone' => 'required'
 		];

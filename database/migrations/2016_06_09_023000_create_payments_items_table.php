@@ -15,7 +15,7 @@ class CreatePaymentsItemsTable extends Migration {
 		Schema::create('payments_items', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->date('date_payment');
+			$table->dateTime('date_payment');
 
 			$table->integer('fk_payment')->unsigned();
 			$table->foreign('fk_payment')->references('id')->on('payments');

@@ -35,8 +35,7 @@ class EditCustomerRequest extends Request {
         $rules = [
 			'name' => 'required',
 			'dni' => 'integer|required|unique:customers,dni,' . $this->route->getParameter('id'),
-			'email' => 'required|unique:customers,email,' . $this->route->getParameter('id'),
-			'birthday' => 'required',
+			//'email' => 'required|unique:customers,email,' . $this->route->getParameter('id'),
 			'address' => 'required',
 			'telephone' => 'required'
         ];

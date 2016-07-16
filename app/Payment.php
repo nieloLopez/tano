@@ -14,9 +14,9 @@ class Payment extends Model {
 
     public function processData($payment)
     {
-        $date = date('Y-m-d');
+        $date = date('Y-m-d H:i:s');
         $newDate = strtotime ( '+30 day' , strtotime ( $date ) ) ;
-        $newDate = date ( 'Y-m-d' , $newDate );
+        $newDate = date ( 'Y-m-d H:i:s' , $newDate );
 
         $this->attributes['date_payment'] = $date;
         $this->attributes['date_payment_expiration'] = $newDate;

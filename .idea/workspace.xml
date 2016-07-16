@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6d9c0633-0851-4ed0-a85c-50242d8c6c19" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/CustomerController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/CustomerController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_customers_table.php" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_customers_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/customer/partials/scripts.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/customer/partials/scripts.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/customer/partials/table.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/customer/partials/table.blade.php" />
-    </list>
+    <list default="true" id="6d9c0633-0851-4ed0-a85c-50242d8c6c19" name="Default" comment="" />
     <ignored path="galpon.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -388,12 +382,12 @@
       <workItem from="1466913457049" duration="2532000" />
       <workItem from="1466916102126" duration="5959000" />
       <workItem from="1467567397983" duration="599000" />
-      <workItem from="1467573445714" duration="14090000" />
+      <workItem from="1467573445714" duration="14307000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="138820000" />
+    <option name="totallyTimeSpent" value="139037000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1505" y="-904" width="1375" height="904" extended-state="6" />

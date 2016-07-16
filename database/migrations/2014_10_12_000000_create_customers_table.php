@@ -19,7 +19,7 @@ class CreateCustomersTable extends Migration {
             $table->string('dni')->unique();
             $table->string('email')->unique();
             $table->string('password', 60);
-            $table->date('birthday');
+            $table->dateTime('birthday');
             $table->string('address');
             $table->string('telephone');
             
