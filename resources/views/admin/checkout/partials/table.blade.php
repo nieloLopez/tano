@@ -5,7 +5,8 @@
         <th></th>
     </tr>
     @foreach ($payments as $payment)
-        <tr data-id="{{ $payment->id }}">
+
+        <tr data-id="{{ $payment->id }}" class="{{ !$payment->status ? 'danger' : '' }}">
             <td class="col-md-4">{{ $payment->date_payment }}</td>
             <td class="col-md-2">$ {{ $payment->price - $payment->amount }}</td>
 

@@ -91,4 +91,23 @@ class Payment extends Model {
             ->get();
         return $fkCustomer[0]->id;
     }
+
+    public function editPayment($payment, $newDataPayment)
+    {
+        if ($payment['price'] < ($newDataPayment['price'] + $payment['amount']))
+        {
+            $payment->price = $newDataPayment['price'] + $payment['amount'];
+        }
+
+        $payment->amount = $payment['amount'] + $newDataPayment['amount'];
+
+        if($newDataPayment['price'] == $newDataPayment['amount'])
+        {
+            $payment->status = 1;
+        } else
+        {
+            $payment->status = 0;
+        }
+        return $payment;
+    }
 }

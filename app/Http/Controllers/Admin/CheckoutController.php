@@ -116,6 +116,31 @@ class CheckoutController extends Controller {
      */
     public function update($id, EditPaymentRequest $request)
     {
-        dd($request->all());
+        try {
+
+            $paymentModel = new Payment();
+            $payment = $paymentModel->findOrFail($id);
+            $newPayment = $paymentModel->editPayment($payment, $request->request->all());
+            $newPayment->save();
+
+            $paymentItemModel = new PaymentItem();
+            $paymentItemModel->processData($id, $request->request);
+            $paymentItemModel->save();
+
+            if ($request->request->get('activity'))
+            {
+                foreach ($request->request->get('activity') as $activity)
+                {
+                    $paymentActivityModel = new PaymentActivitiy();
+                    $paymentActivityModel->processData($id, $activity);
+                    $paymentActivityModel->save();
+                }
+            }
+
+            Session::flash('message', 'El pago se registro con exito');
+            return new RedirectResponse(url('admin/checkout/list/' . $payment->fk_customer));
+        } catch (\Exception $ex) {
+            dd($ex->getMessage() . " Error");
+        }
     }
 }

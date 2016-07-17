@@ -33,7 +33,7 @@ class EditPaymentRequest extends Request {
 	public function rules(RequestForm $request)
 	{
 		return  $rules = [
-			'amount' => 'required',
+            'amount' => 'integer|required|max:' . $request->price . '|min:1',
 			'price' => 'required'
 		];
 	}
