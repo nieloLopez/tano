@@ -1,15 +1,15 @@
 @section('scripts')
     <script>
         $(document).ready(function () {
-
+            var amountAdd = 0;
             $('.check-activity').click(function(){
-                var amount = 0;
+
                 if( $(this).is(':checked') ){
-                    amount += parseInt($(this).attr('data-price'));
-                    $('input#price').val(amount);
+                    amountAdd += parseInt($(this).attr('data-price'));
+                    $('input#price').val(amountAdd);
                 } else {
-                    amount -= parseInt($(this).attr('data-price'));
-                    $('input#price').val(amount);
+                    amountAdd -= parseInt($(this).attr('data-price'));
+                    $('input#price').val(amountAdd);
                 }
             });
 
@@ -17,8 +17,6 @@
             $('.check-activity').click(function(){
                 var amount = parseInt($('#price-pending').val());
                 if( $(this).is(':checked') ){
-
-                    //alert(parseInt($(this).attr('data-price')));
                     amount += parseInt($(this).attr('data-price'));
                     $('input#price-pending').val(amount);
                 } else {

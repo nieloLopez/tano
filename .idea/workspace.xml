@@ -3,15 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6d9c0633-0851-4ed0-a85c-50242d8c6c19" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Customer.php" afterPath="$PROJECT_DIR$/app/Customer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/CheckoutController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/CheckoutController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/CustomerController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/CustomerController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Requests/CustomerRequest.php" afterPath="$PROJECT_DIR$/app/Http/Requests/CustomerRequest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Requests/EditCustomerRequest.php" afterPath="$PROJECT_DIR$/app/Http/Requests/EditCustomerRequest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/checkout/partials/table.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/checkout/partials/table.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/customer/partials/form.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/customer/partials/form.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/customer/partials/table.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/customer/partials/table.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/app.blade.php" afterPath="$PROJECT_DIR$/resources/views/app.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/checkout/partials/scripts.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/checkout/partials/scripts.blade.php" />
     </list>
     <ignored path="galpon.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -43,11 +35,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="table.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="table.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/checkout/partials/table.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
               <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="scripts.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/admin/checkout/partials/scripts.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="19" column="45" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -131,7 +133,6 @@
         <option value="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_customers_table.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/customer/partials/scripts.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/checkout/partials/form.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/checkout/partials/scripts.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/app/PaymentItem.php" />
         <option value="$PROJECT_DIR$/app/Payment.php" />
@@ -148,6 +149,7 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/CheckoutController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/customer/partials/table.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/checkout/partials/table.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/checkout/partials/scripts.blade.php" />
       </list>
     </option>
   </component>
@@ -249,62 +251,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="galpon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="galpon" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="customer" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="galpon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="galpon" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="customer" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="partials" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -546,12 +492,12 @@
       <workItem from="1466916102126" duration="5959000" />
       <workItem from="1467567397983" duration="599000" />
       <workItem from="1467573445714" duration="14307000" />
-      <workItem from="1468696965605" duration="24852000" />
+      <workItem from="1468696965605" duration="26069000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="163889000" />
+    <option name="totallyTimeSpent" value="165106000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1505" y="-4" width="1375" height="904" extended-state="6" />
@@ -809,14 +755,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/checkout/partials/scripts.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="64" selection-start-line="17" selection-start-column="64" selection-end-line="17" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/customer/edit.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -993,6 +931,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/checkout/partials/scripts.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="45" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="45" />
           <folding />
         </state>
       </provider>
