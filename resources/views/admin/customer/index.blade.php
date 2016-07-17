@@ -1,5 +1,4 @@
 @extends('app')
-
 @section('content')
 <div class="container">
     <div class="row">
@@ -14,7 +13,6 @@
                     <div class="form-group">
                         {!! Form::Text('search', null, ['class' => 'form-control', 'placeholder' => 'Buscar']) !!}
                     </div>
-
                     <button type="submit" class="btn btn-default">Buscar</button>
                 {!! Form::close() !!}
 
@@ -25,7 +23,7 @@
                 @endif
 
                 <div class="panel-body">
-                    <p>Total {!! $customers->total() !!} usuarios</p>
+                    <h3>Total {!! $customers->total() !!} usuarios</h3>
                     @include('admin/customer/partials/table')
                 </div>
 

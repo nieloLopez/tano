@@ -19,15 +19,13 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 
-/***************------------ Users--------------*******************/
-
-
+/***************------------ Customers--------------*******************/
 Route::get('admin/', 'Admin\CustomerController@index');
 Route::get('admin/customer/add', 'Admin\CustomerController@add');
 Route::post('admin/customer/store', 'Admin\CustomerController@store');
 Route::get('admin/customer/edit/{id}', 'Admin\CustomerController@edit');
 Route::put('admin/customer/update/{id}', 'Admin\CustomerController@update');
-Route::delete('admin/customer/disable/{id}', 'Admin\CustomerController@disable');
+//Route::delete('admin/customer/disable/{id}', 'Admin\CustomerController@disable');
 
 
 /***************------------- Activities -------------*******************/

@@ -24,11 +24,13 @@
                 <a class="col-md-4"href="{{ url('admin/customer/edit/'.$customer->id) }}">
                     <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                 </a>
+                {{--
                 @if($customer->fk_rol != 1)
                     <a class="col-md-4 btn-delete"href="{{ url('#!') }}">
                         <span class="glyphicon glyphicon-thumbs-{{($customer->status) ? 'down' : 'up' }}" aria-hidden="true"></span>
                     </a>
                 @endif
+                --}}
             </td>
         </tr>
     @endforeach

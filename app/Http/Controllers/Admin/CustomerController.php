@@ -91,6 +91,7 @@ class CustomerController extends Controller {
     {
         try
         {
+            /*
             if ($request->ajax())
             {
                 $user = new Customer();
@@ -104,7 +105,7 @@ class CustomerController extends Controller {
                     'status' => $status
                 ]);
             }
-
+            */
         }catch (\Exception $ex) {
             echo $ex->getMessage();
         }

@@ -24,7 +24,7 @@
 
 
                     <div class="panel-body">
-                        <p>Total {!! $activities->total() !!} Actividades</p>
+                        <h3>Total {!! $activities->total() !!} Actividades</h3>
                         @include('admin/activity/partials/table')
                     </div>
                 </div>
