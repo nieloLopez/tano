@@ -65,6 +65,11 @@ class CheckoutController extends Controller {
                 $paymentActivityModel->save();
             }
 
+            $userModel = new Customer();
+            $user = $userModel->findOrFail($paymentModel->fk_customer);
+            $newStatusCustomer = $userModel->changeStatusCustomer($paymentModel->status, $user);
+            $newStatusCustomer->save();
+
             Session::flash('message', 'El pago se registro con exito');
 
             return new RedirectResponse(url('admin/checkout/list/' . $request->request->get('fk_customer')));
@@ -136,6 +141,11 @@ class CheckoutController extends Controller {
                     $paymentActivityModel->save();
                 }
             }
+
+            $userModel = new Customer();
+            $user = $userModel->findOrFail($payment->fk_customer);
+            $newStatusCustomer = $userModel->changeStatusCustomer($payment->status, $user);
+            $newStatusCustomer->save();
 
             Session::flash('message', 'El pago se registro con exito');
             return new RedirectResponse(url('admin/checkout/list/' . $payment->fk_customer));

@@ -1,10 +1,19 @@
 <table class="table table-striped">
     <tr>
         <th>Nombre</th>
-        <th>Acciones</th>
+        <th>Abonar</th>
     </tr>
     @foreach ($customers as $customer)
-        <tr {{($customer->status) ? 'class=bg-warning' : '' }} data-id="{{ $customer->id }}">
+
+        @if($customer->status == 0)
+            <?php $status = 'warning'?>
+        @elseif($customer->status == 2)
+            <?php $status = 'danger' ?>
+        @else
+        <?php $status = '' ?>
+        @endif
+
+        <tr class='{{ $status }}' data-id="{{ $customer->id }}">
             <td class="col-md-6">{{ $customer->name }}</td>
             <td class="col-md-6">
                 @if($customer->fk_rol != 1)

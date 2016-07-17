@@ -51,13 +51,15 @@ class CustomerController extends Controller {
             $user = new Customer();
             $user->fill($request->all());
             $user->setRol();
+            $user->setPasswordAttribute('');
+            $user->setStatus(0);
             $user->save();
 
             Session::flash('message', 'Se guardo el registro en la base de datos');
 
             return new RedirectResponse(url('admin/'));
         } catch (\Exception $ex) {
-
+            echo $ex->getMessage();
         }
     }
     
@@ -81,7 +83,7 @@ class CustomerController extends Controller {
 
             return new RedirectResponse(url('admin/'));
         } catch (\Exception $ex) {
-            Session::flash('message', $ex->getMessage());
+            echo $ex->getMessage();
         }
     }
     
@@ -104,7 +106,7 @@ class CustomerController extends Controller {
             }
 
         }catch (\Exception $ex) {
-
+            echo $ex->getMessage();
         }
     }
 }

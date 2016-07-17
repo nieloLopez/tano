@@ -1,5 +1,6 @@
 <?php namespace App;
 
+use DB;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
@@ -32,16 +33,9 @@ class Customer extends Model implements AuthenticatableContract, CanResetPasswor
 	 */
 	protected $hidden = ['password', 'remember_token'];
 	
-
 	public function setPasswordAttribute($value)
 	{
-		if (!empty($value))
-		{
-			$this->attributes['password'] = \Hash::make($value);
-		} else
-        {
-            $this->attributes['password'] = '';
-        }
+		$this->attributes['password'] = '';
 	}
 
 	public function scopeSearch($query, $search)
@@ -57,5 +51,33 @@ class Customer extends Model implements AuthenticatableContract, CanResetPasswor
 	public function setRol()
 	{
 		$this->attributes['fk_rol'] = 2;
+	}
+
+	public function setStatus($status)
+	{
+		$this->attributes['status'] = $status;
+	}
+
+	public function changeStatusCustomer($statusLastPayment, $customer)
+	{
+		if (!$statusLastPayment)
+		{
+			$customer->status = 2;
+		} else {
+
+			$paymentList = DB::table('payments as p')
+				->select('p.status')
+				->where('p.fk_customer', $customer->id)
+				->where('p.status',0)
+				->get();
+
+			if (!empty($paymentList))
+			{
+				$customer->status = 2;
+			} else {
+				$customer->status = 1;
+			}
+		}
+		return $customer;
 	}
 }

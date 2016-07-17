@@ -19,13 +19,6 @@
   </div>
 </div>
 
-<div class="form-group hidden" id="password-form">
-    {!! Form::label('password', 'Password', array('class'=> 'col-sm-2 control-label')) !!}
-  <div class="col-xs-4">
-      {!! Form::password('password', array('class'=> 'form-control', 'placeholder'=>'Password')) !!}
-  </div>
-</div>
-
 <div class="form-group">
     {!! Form::label('birthday', 'Cumpleaños', array('class'=> 'col-sm-2 control-label')) !!}
     <div class="col-xs-4">

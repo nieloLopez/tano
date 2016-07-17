@@ -36,6 +36,7 @@ class EditCustomerRequest extends Request {
 			'name' => 'required',
 			'dni' => 'integer|required|unique:customers,dni',
 			'address' => 'required',
+			'email' => 'unique:customers,email,' . $this->route->getParameter('id'),
 			'telephone' => 'required'
 		];
 		//'email' => 'required|unique:customers,email,' . $this->route->getParameter('id'),

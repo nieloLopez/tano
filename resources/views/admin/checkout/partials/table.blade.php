@@ -2,7 +2,7 @@
     <tr>
         <th>Fecha Pago</th>
         <th>Debe</th>
-        <th></th>
+        <th>Editar/Detalle</th>
     </tr>
     @foreach ($payments as $payment)
 
